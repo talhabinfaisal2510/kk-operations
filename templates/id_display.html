@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ID Generated</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+        .container {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        h2 {
+            color: #4CAF50;
+        }
+        .id-box {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2196F3;
+            margin-top: 20px;
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #555;
+        }
+        .back-button {
+            margin-top: 30px;
+            padding: 10px 20px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .back-button:hover {
+            background-color: #1976D2;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Form Filled Successfully!</h2>
+        <div class="id-box">
+            <p>ID of Referred Family : {{ unique_id }}</p>
+        </div>
+        <div class="message">
+            <p>Use this ID to view your family's case status.</p>
+        </div>
+        <button class="back-button" onclick="window.location.href='/'">Go Back to Form</button>
+    </div>
+
+</body>
+</html>

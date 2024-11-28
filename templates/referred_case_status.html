@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Referred Case Status</title>
+    <!-- Updated CSS link to static/style.css -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='case.css') }}"
+    />
+
+    
+    <script src="{{ url_for('static', filename='case.js') }}">
+  window.onload = function() {
+    if (window.history && window.history.replaceState) {
+      window.history.replaceState(null, null, window.location.href); // Removes the page from the history stack
+    }
+  }
+
+    </script>
+  </head>
+
+  <body>
+    <main class="table" id="customers_table">
+      <section class="table__header">
+        <h1>Referred Case Status</h1>
+        <div class="input-group">
+          <!-- Form for searching case ID -->
+          <form action="/referred_case_status" method="POST">
+            <input
+              type="text"
+              name="case_id"
+              id="searchInput"
+              placeholder="Enter Case ID..."
+              required
+            />
+          </form>
+        </div>
+      </section>
+
+      <!-- Display case data if found -->
+      {% if case_data %}
+      <section class="table__body" id="tableBody">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>DATE</th>
+              <th>NAME</th>
+              <th>CONTACT</th>
+              <th>CASE FROM</th>
+              <th>FAMILY MEMBER NAME</th>
+              <th>ADDRESS</th>
+              <th>CASE DETAIL</th>
+              <th>CHAPTER</th>
+              <th>REGION/CHAPTER</th>
+              <th>PENDING CASE NUMBER</th>
+              <th>STATUS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{ case_data[0] }}</td>
+              <td>{{ case_data[1] }}</td>
+              <td>{{ case_data[2] }}</td>
+              <td>{{ case_data[3] }}</td>
+              <td>{{ case_data[4] }}</td>
+              <td>{{ case_data[5] }}</td>
+              <td>{{ case_data[6] }}</td>
+              <td>{{ case_data[7] }}</td>
+              <td>{{ case_data[8] }}</td>
+              <td>{{ case_data[9] }}</td>
+              <td>{{ case_data[10] }}</td>
+              <td class="status">{{ case_data[11] }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      {% elif error_message %}
+      <!-- Display error message if case not found -->
+      <div class="error-message">{{ error_message }}</div>
+      {% endif %}
+      
+    </main>
+  </body>
+</html>

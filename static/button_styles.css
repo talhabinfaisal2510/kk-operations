@@ -1,0 +1,22 @@
+/* Styling for the "Referred Case Status" button */
+.case-status-btn {
+    display: inline-block;
+    background: rgb(130, 106, 251);
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+}
+
+/* Change button color on hover */
+.case-status-btn:hover {
+    background-color: rgb(88, 56, 250);
+}
+
+/* Optional: Add any other button-specific styling here */
