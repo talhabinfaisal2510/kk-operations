@@ -55,7 +55,7 @@ def index():
         except Exception as e:
             # Log the error and show a user-friendly message
             print(f"Error in /submit: {str(e)}")
-            return "An error occurred while processing your request. Please try again later."
+            return f"An error occurred while processing your request. Please try again later.Error :{str(e)}"
     return render_template("index.html")
 @app.route("/referred_case_status", methods=["GET", "POST"])
 def referred_case_status():
