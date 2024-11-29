@@ -20,38 +20,42 @@ def home():
 @app.route("/submit", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
+        try:    
         # Extract form data
-        date = request.form["date"]
-        name = request.form["name"]
-        referrer_contact = request.form["referrer_contact"]
-        case_from = request.form["case_from"]
-        family_member_contact = request.form["family_member_contact"]
-        family_member_name = request.form["family_member_name"]
-        address1 = request.form["address1"]
-        case_detail = request.form["case_detail"]
+            date = request.form["date"]
+            name = request.form["name"]
+            referrer_contact = request.form["referrer_contact"]
+            case_from = request.form["case_from"]
+            family_member_contact = request.form["family_member_contact"]
+            family_member_name = request.form["family_member_name"]
+            address1 = request.form["address1"]
+            case_detail = request.form["case_detail"]
 
-        # Open the Excel file
-        try:
-            wb = openpyxl.load_workbook(EXCEL_FILE_PATH)
-            sheet = wb.active
-        except PermissionError:
-            return "Permission denied. Please check file permissions or if the file is open in another program."
+            # Open the Excel file
+            try:
+                wb = openpyxl.load_workbook(EXCEL_FILE_PATH)
+                sheet = wb.active
+            except PermissionError:
+                return "Permission denied. Please check file permissions or if the file is open in another program."
 
-        # Generate a unique ID for the new row
-        unique_id = generate_unique_id()
+            # Generate a unique ID for the new row
+            unique_id = generate_unique_id()
 
-        # Insert the new data into the Excel sheet
-        new_row = [
-            unique_id, date, name, referrer_contact, case_from, family_member_contact,family_member_name,
-        	 address1, case_detail
-        ]
-        sheet.append(new_row)
+            # Insert the new data into the Excel sheet
+            new_row = [
+                unique_id, date, name, referrer_contact, case_from, family_member_contact,family_member_name,
+                address1, case_detail
+            ]
+            sheet.append(new_row)
 
-        # Save the Excel file
-        wb.save(EXCEL_FILE_PATH)
+            # Save the Excel file
+            wb.save(EXCEL_FILE_PATH)
 
-        return render_template("id_display.html", unique_id=unique_id)
-
+            return render_template("id_display.html", unique_id=unique_id)
+        except Exception as e:
+            # Log the error and show a user-friendly message
+            print(f"Error in /submit: {str(e)}")
+            return "An error occurred while processing your request. Please try again later."
     return render_template("index.html")
 @app.route("/referred_case_status", methods=["GET", "POST"])
 def referred_case_status():
