@@ -7,7 +7,7 @@ import os
 app = Flask(__name__)
 
 # Path to the Excel file
-EXCEL_FILE_PATH = r"E:\Mr.Gadgets backup\Documents\kk operations\Book1.xlsx"
+EXCEL_FILE_PATH = os.path.join(os.path.dirname(__file__), 'Book1.xlsx')
 
 # Helper function to generate a unique ID
 def generate_unique_id():
