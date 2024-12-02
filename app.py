@@ -3,7 +3,7 @@ import openpyxl
 import random
 import string
 import os
-# from dotenv import load_dotenv
+from dotenv import load_dotenv
 from google.oauth2.service_account import Credentials
 from google.oauth2 import service_account
 from google.cloud import storage
@@ -13,7 +13,7 @@ import gspread
 app = Flask(__name__)
 
 # Load environment variables from .env file
-# load_dotenv()
+load_dotenv()
 
 # Fetch the Google Sheets credentials JSON from environment variable
 SERVICE_ACCOUNT_JSON = os.getenv('GOOGLE_APPLICATION_CREDENTIALS')
