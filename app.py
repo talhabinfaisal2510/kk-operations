@@ -25,7 +25,7 @@ SCOPES = ['https://www.googleapis.com/auth/spreadsheets', 'https://www.googleapi
 # Convert the string back to a dictionary
 service_account_info = json.loads(SERVICE_ACCOUNT_JSON)
 # Authenticate with Google Sheets
-credentials = Credentials.from_service_account_file(service_account_info, scopes=SCOPES)
+credentials = Credentials.from_service_account_info(service_account_info, scopes=SCOPES)
 client = gspread.authorize(credentials)
 
 # Open the Google Sheet
