@@ -5,7 +5,7 @@ import os
 from dotenv import load_dotenv
 from google.oauth2.service_account import Credentials
 import gspread
-
+import json
 
 app = Flask(__name__)
 
@@ -22,9 +22,10 @@ else:
     print("Environment variable for Google Sheets credentials is set.")
 
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets', 'https://www.googleapis.com/auth/drive']
-
+# Convert the string back to a dictionary
+service_account_info = json.loads(SERVICE_ACCOUNT_JSON)
 # Authenticate with Google Sheets
-credentials = Credentials.from_service_account_file(SERVICE_ACCOUNT_JSON, scopes=SCOPES)
+credentials = Credentials.from_service_account_file(service_account_info, scopes=SCOPES)
 client = gspread.authorize(credentials)
 
 # Open the Google Sheet
