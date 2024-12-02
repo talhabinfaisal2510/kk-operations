@@ -1,12 +1,9 @@
 from flask import Flask, render_template, request
-import openpyxl
 import random
 import string
 import os
 from dotenv import load_dotenv
 from google.oauth2.service_account import Credentials
-from google.oauth2 import service_account
-from google.cloud import storage
 import gspread
 
 
