@@ -11,14 +11,12 @@
       href="{{ url_for('static', filename='case.css') }}"
     />
 
-    
     <script src="{{ url_for('static', filename='case.js') }}">
-  window.onload = function() {
-    if (window.history && window.history.replaceState) {
-      window.history.replaceState(null, null, window.location.href); // Removes the page from the history stack
-    }
-  }
-
+      window.onload = function() {
+        if (window.history && window.history.replaceState) {
+          window.history.replaceState(null, null, window.location.href); // Removes the page from the history stack
+        }
+      }
     </script>
   </head>
 
@@ -51,13 +49,14 @@
               <th>NAME</th>
               <th>CONTACT</th>
               <th>CASE FROM</th>
-              <th>FAMILY MEMBER NAME</th>
-              <th>ADDRESS</th>
-              <th>CASE DETAIL</th>
-              <th>CHAPTER</th>
-              <th>REGION/CHAPTER</th>
-              <th>PENDING CASE NUMBER</th>
-              <th>STATUS</th>
+              <th>FAMILY MEMBER Contact</th>
+              <th>Family Member Name</th>
+              <th>Address</th>
+              <th>Case Details</th>
+              <th>Chapter</th>
+              <th>Region</th>
+              <th>Pending Case Number</th>
+              <th>Status</th>
             </tr>
           </thead>
           <tbody>
@@ -73,7 +72,8 @@
               <td>{{ case_data[8] }}</td>
               <td>{{ case_data[9] }}</td>
               <td>{{ case_data[10] }}</td>
-              <td class="status">{{ case_data[11] }}</td>
+              <td>{{ case_data[11] }}</td>
+              <td class="status">{{ case_data[12] }}</td>
             </tr>
           </tbody>
         </table>
@@ -82,7 +82,6 @@
       <!-- Display error message if case not found -->
       <div class="error-message">{{ error_message }}</div>
       {% endif %}
-      
     </main>
   </body>
 </html>
