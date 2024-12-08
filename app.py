@@ -30,6 +30,7 @@ client = gspread.authorize(credentials)
 
 # Open the Google Sheet
 SPREADSHEET_ID = "1Yi-QemY97IEgQsWiOZWsmaz6zuwPr726iDmxCVzP70w"
+print(f"Using Spreadsheet ID: {SPREADSHEET_ID}")
 sheet = client.open_by_key(SPREADSHEET_ID).sheet1  # Access the first sheet
 
 
