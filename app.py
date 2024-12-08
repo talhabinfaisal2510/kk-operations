@@ -32,7 +32,8 @@ client = gspread.authorize(credentials)
 SPREADSHEET_ID = "1Yi-QemY97IEgQsWiOZWsmaz6zuwPr726iDmxCVzP70w"
 
 print(f"Using Spreadsheet ID: {SPREADSHEET_ID}")
-sheet = client.open_by_key(SPREADSHEET_ID).sheet1  # Access the first sheet
+sheet = client.open_by_key(SPREADSHEET_ID).worksheet("Main Sheet")
+ # Access the first sheet
 
 
 # Helper function to generate a unique ID
