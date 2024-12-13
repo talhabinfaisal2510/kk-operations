@@ -29,7 +29,7 @@ credentials = Credentials.from_service_account_info(service_account_info, scopes
 client = gspread.authorize(credentials)
 
 # Open the Google Sheet
-SPREADSHEET_ID = "1Yi-QemY97IEgQsWiOZWsmaz6zuwPr726iDmxCVzP70w"
+SPREADSHEET_ID = "1it_yJNBUh3G4ff3Vj5-T4PhKfuSJNLcOkcAwkQ0AQVY"
 
 print(f"Using Spreadsheet ID: {SPREADSHEET_ID}")
 sheet = client.open_by_key(SPREADSHEET_ID).worksheet("Main Sheet")
